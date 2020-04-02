@@ -16,7 +16,9 @@ def new_user():
         password = request.form["myPass"]
         school = request.form["mySchool"]
         user = request.form["userMode"]
-        f.create_new_user(name, email, password, school, user)
+        err = f.create_new_user(name, email, password, school, user)
+        if (err != 1):
+            return "ERROR: Could not create a new user"
         return redirect(url_for("student"))
     else:
         return render_template('new_user.html')

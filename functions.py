@@ -5,4 +5,4 @@ def create_new_user(name, email, password, school, user):
     print(password)
     print(school)
     print(user)
-    return
+    return 1
