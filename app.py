@@ -1,20 +1,30 @@
-from flask import Flask, render_template, url_for
-import requests
+from flask import Flask, redirect, render_template, url_for, request
 import student as s
+import functions as f
 
 app = Flask(__name__)
 
-def signin():
-    return 1
+@app.route('/', methods=["POST", "GET"])
+def sign_in():
+    return render_template('signin.html')
 
-@app.route('/')
-def index():
-    user = signin()
-    if (user == 1):
-        stu = s.student()
-        resp = stu.chatbot()
+@app.route('/new_user', methods=["POST", "GET"])
+def new_user():
+    if request.method == "POST":
+        name = request.form["myName"]
+        email = request.form["myEmail"]
+        password = request.form["myPass"]
+        school = request.form["mySchool"]
+        user = request.form["userMode"]
+        f.create_new_user(name, email, password, school, user)
+        return redirect(url_for("student"))
     else:
-        print("ERROR")
+        return render_template('new_user.html')
+
+@app.route('/student')
+def student():
+    myStudent = s.student()
+    resp = myStudent.chatbot()
     return resp
 
 if __name__ == "__main__":
