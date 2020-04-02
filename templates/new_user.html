@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new_user.html</title>
+</head>
+<body>
+    <h1>Welcome New User!</h1>
+    <form action="{{ url_for('index') }}" method="POST">
+        <fieldset>
+            <p>
+                <label>Name</label>
+                <input type="text" id="myName" value="" />
+            </p>
+            <p>
+                <label>Email</label>
+                <input type="text" id="myEmail" value="" />
+            </p>
+            <p>
+                <label>Password</label>
+                <input type="password" id="myPass" value="" />
+            </p>
+            <p>
+                <label>School</label>
+                <input type="text" id="mySchool" value="" />
+            </p>
+            <p>
+                <input type="radio" id="student" name="userMode" value="student" />
+                <label for="student">Student</label></br>
+                <input type="radio" id="teacher" name="userMode" value="teacher" />
+                <label for="teacher">Teacher</label>
+            </p>
+            <p>
+                <input type="submit" value="SignUp" />
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>
