@@ -7,29 +7,27 @@
 </head>
 <body>
     <h1>Welcome New User!</h1>
-    <form action="{{ url_for('index') }}" method="POST">
+    <form action="#" method="POST">
         <fieldset>
             <p>
                 <label>Name</label>
-                <input type="text" id="myName" value="" />
+                <input type="text" id="name" name="myName" value="" />
             </p>
             <p>
                 <label>Email</label>
-                <input type="text" id="myEmail" value="" />
+                <input type="text" id="email" name="myEmail" value="" />
             </p>
             <p>
                 <label>Password</label>
-                <input type="password" id="myPass" value="" />
+                <input type="password" id="pass" name="myPass" value="" />
             </p>
             <p>
                 <label>School</label>
-                <input type="text" id="mySchool" value="" />
+                <input type="text" id="school" name="mySchool" value="" />
             </p>
             <p>
-                <input type="radio" id="student" name="userMode" value="student" />
-                <label for="student">Student</label></br>
-                <input type="radio" id="teacher" name="userMode" value="teacher" />
-                <label for="teacher">Teacher</label>
+                <label>Are you a student or a teacher?</label>
+                <input type="text" id="user" name="userMode" value="" />
             </p>
             <p>
                 <input type="submit" value="SignUp" />
