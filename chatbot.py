@@ -1,11 +1,19 @@
 from PIL import Image, ImageTk
+import speech_recognition as sr
 import tkinter as tk
 
 HEIGHT = 400
 WIDTH = 600
 
 def chatbot():
-	print("chatbot!")
+	r = sr.Recognizer()
+	with sr.Microphone() as source:
+		print("Say Something!")
+		audio = r.listen(source)
+	try:
+		print("Google thinks you said: " + r.recognize_google(audio))
+	except:
+		print("Google could not understand, please try again")
 
 root = tk.Tk()
 
