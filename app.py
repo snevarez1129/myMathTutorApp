@@ -6,7 +6,11 @@ app = Flask(__name__)
 
 @app.route('/', methods=["POST", "GET"])
 def sign_in():
-    return render_template('signin.html')
+    if request.method == "POST":
+        #verify login credentials
+        return redirect(url_for("student"))
+    else:
+        return render_template('sign-in.html')
 
 @app.route('/new_user', methods=["POST", "GET"])
 def new_user():
@@ -21,13 +25,14 @@ def new_user():
             return "ERROR: Could not create a new user"
         return redirect(url_for("student"))
     else:
-        return render_template('new_user.html')
+        return render_template('new-user.html')
 
-@app.route('/student')
+@app.route('/student', methods=["POST", "GET"])
 def student():
-    myStudent = s.student()
-    resp = myStudent.chatbot()
-    return resp
+    if request.method == "POST":
+        #launch chatbot
+    else:
+        return render_template('student.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
