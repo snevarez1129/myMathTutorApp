@@ -15,8 +15,8 @@
 
 ## To Run
 1. `pip3 install -r requirements.txt`
-2. `python3 chatbot.py`
+2. `python3 test.py`
+3. `python3 chatbot.py`
 
 ## Third Party Technologies
 * Google Speech Recognition API
-* Khan-academy API
