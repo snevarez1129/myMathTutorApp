@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            home
+        </title>
+    </head>
+    <body>
+        Welcome, {{username}}
+        {%for lesson in lessonCollection%}
+            <form method = "POST" action = "/lesson" id = {{lesson}}>
+                    <input hidden type = "text" id = "selector" name = "selector" value = {{lesson}}>
+                    <input type = "submit" value = {{lesson}} >
+            </form>   
+        {% endfor %}
+        <script>
+            function changeText(text){
+                var x = document.getElementById("selector");
+                x.value = text
+            }
+            </script>
+    </body>
+</html>

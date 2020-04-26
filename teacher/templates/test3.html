@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            {{lessonplan.topic}}
+            {{lessonplan1.topic}}
         </title>
     </head>
     <body>
@@ -12,12 +12,36 @@
         <br>
         <button id = "quizButton" onclick="startQuiz()">Start Quiz</button>
 
+        <form hidden id = "quiz" method = "POST" action = "/collection">
+            {%for question in lessonplan1.quiz.keys()%}
+                Question: {{question}}<br>
+                Answer: <input type = "text" id = "{{loop.index}}" name = "{{lessonplan1.quiz.get(question)}}"><br>
+            {% endfor %}
+            <input type = "submit" onclick = checkAnswer() value = "submit quiz">
+        </form>
+
         <script>
         function startQuiz(){
             var x = document.getElementById("video");
             var y = document.getElementById("quizButton");
+            var z = document.getElementById("quiz");
             x.style.display = "none";
             y.style.display = "none";
+            z.style.display = "block";
+        }
+        function checkAnswer(){
+            var i;
+            var correct = 0;
+            var quizno = parseInt("{{lessonplan1.quizno}}") + 1
+            for (i = 1; i < quizno; i++){
+                var userAnswer = document.getElementById(i.toString());
+                var correctAnswer = userAnswer.getAttribute("name");
+                if(userAnswer.value == correctAnswer){
+                    correct++;
+                }
+            }
+            quizno--;
+            alert("You got " + correct + "/" + quizno + " questions correct!");
         }
         </script>
     </body>
