@@ -12,12 +12,15 @@
         <button id = "quizButton" onclick="startQuiz()">Start Quiz</button>
 
         <form hidden id = "quiz" method = "POST" action = "/collection">
+            <h2>Quiz</h2>
+            <fieldset>
             {%for question in lessonplan1.quiz.keys()%}
             <p>
                 Question: {{question}}<br>
                 Answer: <input type = "text" id = "{{loop.index}}" name = "{{lessonplan1.quiz.get(question)}}"><br>
             </p>
             {% endfor %}
+            </fieldset>
             <p>
                 <input type = "submit" onclick = checkAnswer() value = "Submit">
             </p>
