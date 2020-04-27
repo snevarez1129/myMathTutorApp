@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session
 import pyrebase
 import json
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] ='b1gk3y'
@@ -18,8 +19,8 @@ auth = firebase.auth()
 db = firebase.database()
 
 def signIn(email,password):
-    user = auth.sign_in_with_email_and_password(email,password)
-    return user
+	user = auth.sign_in_with_email_and_password(email,password)
+	return user
 
 def signUp(email,password):
     auth.create_user_with_email_and_password(email,password)
@@ -35,27 +36,30 @@ class lessons:
 def index():
     return render_template('index.html')
 
-@app.route("/signin", methods = ['POST'])
-def signin():
-    email = request.form.get("email_in")
-    password = request.form.get("password_in")
-    user = signIn(email,password)
-    session['user'] = user
-    username = email.split('@')[0]
-    session['username'] = username
-    return render_template('home.html', email = email)
-
-@app.route("/signup", methods = ['POST'])
+@app.route("/new_user", methods = ['POST'])
 def signup():
     email = request.form.get("email_up")
     password = request.form.get("password_up")
     signUp(email,password)
     return render_template('signup.html')
 
+@app.route("/home", methods = ['POST','GET'])
+def signin():
+	if request.method == "POST":
+		email = request.form.get("email_in")
+		password = request.form.get("password_in")
+		user = signIn(email,password)
+		session['user'] = user
+		username = email.split('@')[0]
+		session['username'] = username
+		return render_template('home.html', username=username)
+	else:
+		usr = session.get('username')
+		return render_template('home.html', username=usr)
+
 @app.route("/lessoncreator", methods = ['POST'])
 def test():
     return render_template('test.html')
-
 
 @app.route('/quizcreator', methods = ['POST'])
 def quizcreator():

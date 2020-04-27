@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            {{lessonplan1.topic}}
-        </title>
+        <title>{{lessonplan1.topic}}</title>
     </head>
     <body>
         <h1>{{lessonplan1.topic}}</h1>
         <!--https://www.youtube.com/embed/NybHckSEQBI-->
-        <iframe id = "video" width="560" height="315" src={{lessonplan1.video}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <br>
+        <p>
+            <iframe id = "video" width="560" height="315" src={{lessonplan1.video}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </p>
         <button id = "quizButton" onclick="startQuiz()">Start Quiz</button>
 
         <form hidden id = "quiz" method = "POST" action = "/collection">
             {%for question in lessonplan1.quiz.keys()%}
+            <p>
                 Question: {{question}}<br>
                 Answer: <input type = "text" id = "{{loop.index}}" name = "{{lessonplan1.quiz.get(question)}}"><br>
+            </p>
             {% endfor %}
-            <input type = "submit" onclick = checkAnswer() value = "submit quiz">
+            <p>
+                <input type = "submit" onclick = checkAnswer() value = "Submit">
+            </p>
         </form>
 
         <script>

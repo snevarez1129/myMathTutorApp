@@ -2,22 +2,30 @@
 <html>
     <head>
         <title>
-            home
+            collection.html
         </title>
     </head>
     <body>
-        Welcome, {{username}}
-        {%for lesson in lessonCollection%}
-            <form method = "POST" action = "/lesson" id = {{lesson}}>
+        <p>Welcome {{username}}. Here are your saved lesson plans.</p>
+        <fieldset>
+            <legend>Saved Lessons</legend>
+            {%for lesson in lessonCollection%}
+            <p>
+                <form method = "POST" action = "/lesson" id = {{lesson}}>
                     <input hidden type = "text" id = "selector" name = "selector" value = {{lesson}}>
                     <input type = "submit" value = {{lesson}} >
-            </form>   
-        {% endfor %}
-        <script>
-            function changeText(text){
-                var x = document.getElementById("selector");
-                x.value = text
-            }
+                </form> 
+            </p>  
+            {% endfor %}
+            <script>
+                function changeText(text){
+                    var x = document.getElementById("selector");
+                    x.value = text
+                }
             </script>
+        </fieldset>
+        <form method="GET" action="/home">
+            <p><input type = "submit" value="Return"></p>
+        </form>
     </body>
 </html>
