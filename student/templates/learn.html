@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>learn.html</title>
+    </head>
+    <body>
+        <h1>{{lessonplan1.topic}}</h1>
+        <p>
+            <iframe id = "video" width="560" height="315" src={{lessonplan1.video}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </p>
+
+        <button id = "quizButton" onclick="startQuiz()">Start Quiz</button>
+
+        <form hidden id = "quiz" method = "GET" action = "/lessons">
+            <h2>Quiz</h2>
+            <fieldset>
+            {%for question in lessonplan1.quiz.keys()%}
+            <p>
+                Question: {{question}}<br>
+                Answer: <input type = "text" id = "{{loop.index}}" name = "{{lessonplan1.quiz.get(question)}}"><br>
+            </p>
+            {% endfor %}
+            </fieldset>
+            <p>
+                <input type = "button" onclick = checkAnswer() value = "Submit"></br>
+                <input type="submit" value = "Return">
+            </p>
+        </form>
+
+        <script>
+        function startQuiz(){
+            var x = document.getElementById("video");
+            var y = document.getElementById("quizButton");
+            var z = document.getElementById("quiz");
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "block";
+        }
+        function checkAnswer(){
+            var i;
+            var correct = 0;
+            var quizno = parseInt("{{lessonplan1.quizno}}") + 1
+            for (i = 1; i < quizno; i++){
+                var userAnswer = document.getElementById(i.toString());
+                var correctAnswer = userAnswer.getAttribute("name");
+                if(userAnswer.value == correctAnswer){
+                    correct++;
+                }
+            }
+            quizno--;
+            alert("You got " + correct + "/" + quizno + " questions correct!");
+        }
+        </script>
+    </body>
+</html>

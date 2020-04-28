@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>lessons.html</title>
+    </head>
+    <body>
+        <p>Here are {{username}}'s saved lesson plans.</p>
+        <fieldset>
+            <legend>Saved Lessons</legend>
+            {%for lesson in lessonCollection%}
+            <p>
+                <form method = "POST" action = "/learn" id = {{lesson}}>
+                    <input hidden type = "text" id = "selector" name = "selector" value = {{lesson}}>
+                    <input type = "submit" value = {{lesson}} >
+                </form> 
+            </p>  
+            {% endfor %}
+            <script>
+                function changeText(text){
+                    var x = document.getElementById("selector");
+                    x.value = text
+                }
+            </script>
+        </fieldset>
+        <form method="GET" action="/student">
+            <p><input type = "submit" value="Return"></p>
+        </form>
+    </body>
+</html>

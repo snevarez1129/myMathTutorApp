@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>student.html</title>
+    </head>
+    <body>
+        <p>Welcome {{username}}! Select a teacher below to view their lessons.</p>
+        <fieldset>
+            <legend>Teachers</legend>
+            {%for teacher in allTeachers%}
+            <p>
+                <form method = "POST" action = "/lessons" id = {{teacher}}>
+                    <input hidden type = "text" id = "selector" name = "selector" value = {{teacher}}>
+                    <input type = "submit" value = {{teacher}} >
+                </form> 
+            </p>
+            {% endfor %}
+        </fieldset>
+        </br>
+        <form method="POST" action ="/">
+            <input type="submit" value="Logout">
+        </form>
+    </body>
+</html>
