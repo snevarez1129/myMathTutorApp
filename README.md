@@ -14,10 +14,10 @@
 2. As a teacher, I want to create lesson plans, so that my students can work on their own.
 
 ## To Run
-**Install Dependencies:** `pip3 install -r requirements.txt`
-**Add API Key:** A Google Firebase API Key is required. Add it to test.py and app.py line 10.
-**Teachers:** `python3 test.py`
-**Students:** `python3 app.py`
+1. **Install Dependencies:** `pip3 install -r requirements.txt`
+2. **Add API Key:** A Google Firebase API Key is required. Add it to test.py and app.py line 10.
+3. **Teachers:** `python3 test.py`
+4. **Students:** `python3 app.py`
 
 ## Technologies Used
 * Google Firebase Realtime Database
