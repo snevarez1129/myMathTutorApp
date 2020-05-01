@@ -33,17 +33,6 @@ def signIn(email, password):
 def signUp(email, password):
     auth.create_user_with_email_and_password(email, password)
 
-def chatbot():
-	r = sr.Recognizer()
-	with sr.Microphone() as source:
-		print("Say Something!")
-		audio = r.listen(source)
-	try:
-		print("Google thinks you said: " + r.recognize_google(audio))
-		return r.recognize_google(audio)
-	except:
-		print("Google could not understand, please try again")
-
 @app.route("/", methods = ['POST','GET'])
 def index():
     return render_template('index.html')

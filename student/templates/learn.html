@@ -16,8 +16,8 @@
             <fieldset>
             {%for question in lessonplan1.quiz.keys()%}
             <p>
-                Question: {{question}}<br>
-                Answer: <input type = "text" id = "ans" name = "{{lessonplan1.quiz.get(question)}}" onclick=chatbot()></br>
+                Question {{loop.index}}: {{question}}<br>
+                Answer {{loop.index}}: <input type = "text" id = {{loop.index}} name = {{lessonplan1.quiz.get(question)}} onclick=chatbot()></br>
             </p>
             {% endfor %}
             </fieldset>
@@ -39,10 +39,9 @@
         function checkAnswer(){
             var i;
             var correct = 0;
-            var quizno = parseInt("{{lessonplan1.quizno}}") + 1
+            var quizno = parseInt("{{lessonplan1.quizno}}") + 1;
             for (i = 1; i < quizno; i++){
-                //var userAnswer = document.getElementById(i.toString());
-                var userAnswer = document.getElementById("ans");
+                var userAnswer = document.getElementById(i.toString());
                 var correctAnswer = userAnswer.getAttribute("name");
                 if(userAnswer.value == correctAnswer){
                     correct++;
@@ -51,12 +50,12 @@
             quizno--;
             alert("You got " + correct + "/" + quizno + " questions correct!");
         }
-        function chatbot(loop){
+        function chatbot(){
             var recognition = new webkitSpeechRecognition();
             recognition.lang = "en-US";
             recognition.onresult = function(event) {
-                console.log(event);
-                document.getElementById("ans").value = event.results[0][0].transcript;
+                console.log(event)
+                document.activeElement.value = event.results[0][0].transcript;
             }
             recognition.start();
         }
