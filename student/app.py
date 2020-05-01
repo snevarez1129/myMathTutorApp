@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b1gk3y'
 
 config = {
-  "apiKey": "AIzaSyDSdsT2h6wAlkQI3rj7sAbPD2a0hFJVIIA",
+  "apiKey": "",
   "authDomain": "mathtutorapp-f3ddc.firebaseapp.com",
   "databaseURL": "https://mathtutorapp-f3ddc.firebaseio.com",
   "storageBucket": "mathtutorapp-f3ddc.appspot.com"
