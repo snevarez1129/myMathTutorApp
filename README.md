@@ -14,9 +14,11 @@
 2. As a teacher, I want to create lesson plans, so that my students can work on their own.
 
 ## To Run
-1. `pip3 install -r requirements.txt`
-2. `python3 test.py`
-3. `python3 chatbot.py`
+1. **Install Dependencies:** `pip3 install -r requirements.txt`
+2. **Add API Key:** A Google Firebase API Key is required. Add it to test.py and app.py line 10.
+3. **Teachers:** In teacher, run `python3 test.py`
+4. **Students:** In student, run `python3 app.py`
 
-## Third Party Technologies
-* Google Speech Recognition API
+## Technologies Used
+* Google Firebase Realtime Database
+* Web Speech API

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            quiz creator
-        </title>
+        <title>test2.html</title>
     </head>
     <body>
         <form method = "POST" action = "/complete">
-            {%for i in range(noquestions)%}
-                Question {{i+1}}: <input type = "text" id = "q{{i+1}}" name = "q{{i+1}}"><br>
-                Answer {{i+1}}: <input type = "text" id = "a{{i+1}}" name = "a{{i+1}}"><br>
-            {% endfor %}
-            <input type = "submit" value = "complete lesson creation">
+            <fieldset>
+                <legend>Create Quiz</legend>
+                {%for i in range(noquestions)%}
+                    <p>Question {{i+1}}: <input type = "text" id = "q{{i+1}}" name = "q{{i+1}}"></p>
+                    <p>Answer {{i+1}}: <input type = "text" id = "a{{i+1}}" name = "a{{i+1}}"></p>
+                {% endfor %}
+            </fieldset>
+            <p><input type = "submit" value = "Submit Lesson"></p>
         </form>
     </body>
 </html>

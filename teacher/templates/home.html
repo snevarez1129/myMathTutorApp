@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            home
-        </title>
+        <title>home.html</title>
     </head>
     <body>
-        Welcome, {{email}}
+        <p>Welcome {{username}}! What would you like to do?</p>
         <form method ="POST" action ="/lessoncreator">
-        <input type = "submit" value = "create lesson">
+            <input type = "submit" value = "Create A New Lesson">
         </form>
+        </br>
         <form method ="POST" action ="/collection">
-        <input type = "submit" value = "view lessons">
+            <input type = "submit" value = "View Saved Lessons">
+        </form>
+        </br>
+        <form method="POST" action ="/">
+            <input type="submit" value="Logout">
         </form>
     </body>
 </html>

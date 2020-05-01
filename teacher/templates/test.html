@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            lesson creator
-        </title>
+        <title>test.html</title>
     </head>
     <body>
         <form method ="POST" action ="/quizcreator">
-            Lesson name: <input type = "text" id = "lesson" name = "lesson"><br>
-            Video link: <input type = "text" id = "video" name = "video"><br>
-            How many quiz questions would you like: <input type = "number" id = "noquestions" name = "noquestions"><br>
-            <input type = "submit" value = "proceed to quiz creator!">
+            <fieldset>
+                <legend>Create New Lesson</legend>
+                <p>Lesson Name: <input type = "text" id = "lesson" name = "lesson"></p>
+                <p>Video Link: <input type = "text" id = "video" name = "video"></p>
+                <p>Number of Quiz Questions: <input type = "number" id = "noquestions" name = "noquestions"></p>
+            </fieldset>
+            <p><input type = "submit" value = "Next"></p>
         </form>
     </body>
 </html>
