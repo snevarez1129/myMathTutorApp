@@ -105,12 +105,5 @@ def lessoner():
     final = lessons(display["topic"], display["video"], display["quiz"], display["quizno"])
     return render_template('test3.html', lessonplan1 = final)
 
-z = db.child("users").child("yaboi").child("algebra").get().val()
-display = json.loads(z)
-final = lessons(display["topic"], display["video"], display["quiz"], display["quizno"])
-print(final.topic)
-for question in final.quiz.keys():
-    print(question)
-
 if __name__ == '__main__':
     app.run(debug=True)
