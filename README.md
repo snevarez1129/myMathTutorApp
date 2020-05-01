@@ -15,10 +15,9 @@
 
 ## To Run
 **Install Dependencies:** `pip3 install -r requirements.txt`
-
+**Add API Key:** A Google Firebase API Key is required. Add it to test.py and app.py line 10.
 **Teachers:** `python3 test.py`
-
-**Students:** `python3 chatbot.py`
+**Students:** `python3 app.py`
 
 ## Technologies Used
 * Google Firebase Realtime Database
