@@ -14,9 +14,12 @@
 2. As a teacher, I want to create lesson plans, so that my students can work on their own.
 
 ## To Run
-1. `pip3 install -r requirements.txt`
-2. `python3 test.py`
-3. `python3 chatbot.py`
+**Install Dependencies:** `pip3 install -r requirements.txt`
 
-## Third Party Technologies
-* Google Speech Recognition API
+**Teachers:** `python3 test.py`
+
+**Students:** `python3 chatbot.py`
+
+## Technologies Used
+* Google Firebase Realtime Database
+* Web Speech API
